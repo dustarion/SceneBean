@@ -3,24 +3,27 @@ This is a little layer I built above SceneKit to make some of the most used func
 
 Here's an example of how SceneBean makes life easier, take the two following functions:
 
-*Without SceneBean*
-'func ApplyForceToRocket() {
+**Without SceneBean**
+```swift
+func ApplyForceToRocket() {
         guard let rocketshipNode = scene.rootNode.childNode(withName: "rocketship", recursively: false) ,
             let physicsBody = rocketshipNode.physicsBody
             else { print("Force Failed")
                 return }
-        
         let direction = SCNVector3(0, 3, 0)
         physicsBody.applyForce(direction, asImpulse: true)
-    }'
+    }
+```
     
-*With SceneBean*
-'func ApplyForceToRocket() {
+**With SceneBean**
+```swift
+func ApplyForceToRocket() {
 SceneBean.SBApplyForce( ontoChildNodeWithName: "rocketship", 
                                       inScene: scene, 
                                   inDirection: SCNVector3(0, 3, 0), 
                                     asImpulse: true)
-    }'
+    }
+```
     
 ## Installation
 Drag SceneBean.swift into your Project.
