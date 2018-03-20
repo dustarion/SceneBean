@@ -7,12 +7,11 @@ This is a little layer I built above SceneKit to make some of the most used func
 ```swift
 func ApplyForceToRocket() {
         guard let rocketshipNode = scene.rootNode.childNode(withName: "rocketship", recursively: false) ,
-            let physicsBody = rocketshipNode.physicsBody
-            else { print("Force Failed")
-                return }
+              let physicsBody = rocketshipNode.physicsBody
+              else { print("Force Failed"), return }
         let direction = SCNVector3(0, 3, 0)
         physicsBody.applyForce(direction, asImpulse: true)
-    }
+}
 ```
     
 **With SceneBean**
@@ -22,7 +21,7 @@ SceneBean.SBApplyForce( ontoChildNodeWithName: "rocketship",
                                       inScene: scene, 
                                   inDirection: SCNVector3(0, 3, 0), 
                                     asImpulse: true)
-    }
+}
 ```
 ***See how much neater that is! And stuff like guard is always used so you shouldn't crash even if you screw up your syntax.***
     
